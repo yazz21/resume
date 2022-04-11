@@ -1,36 +1,79 @@
-body {
+/* body {
   display: grid;
   place-content: center;
   color: white;
 
+} */
+
+
+
+:root {
+  font-size: 16px;
+  font-family: "open sans";
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #57576b;
+  --bg-secondary: #a5a5a5;
 }
+
+body {
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.925);
+  margin: 0;
+  padding: 0;
+  
+}
+
+body::-webkit-scrollbar {
+  width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #c4b9e2;
+}
+
 .parentthree {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  grid-gap: 3rem;
+  grid-gap: 2rem;
+  max-width: 80rem;
   height: 100%;
-  max-width:  800px;
-  height: 100%;
-  background-color: rgb(255, 164, 164);
+  background-color: rgba(0, 0, 0, 0.63);
   padding: 2rem;
-  
+
+  letter-spacing: .1rem;
+  word-spacing: .2rem;
+
 }
+
 .boxone {
   flex-direction: column;
-  background-color: rgba(0, 151, 197, 0.781);
-  padding: 0.6rem;
+  background-color: rgba(10, 31, 37, 0.781);
+  padding: 6rem;
 }
+
 .boxsidenav {
   display: grid;
   place-content: center;
   padding: 2rem 0.5rem 0.5rem 0.5rem;
-  background-color: rgb(0, 151, 197);
+  background-color: rgb(16, 56, 68);
 }
+
 .theImage {
   display: flex;
   margin: auto;
   width: 100%;
 }
+
+.github{
+  text-decoration: none;
+  color: rgb(111, 169, 255);
+}
+
 /* li {
     padding: .3rem;
     list-style: none;
@@ -38,6 +81,7 @@ body {
 .lang-s li {
   padding: 0.3rem;
 }
+
 .lang-p {
   display: flex;
   flex-direction: column;
@@ -45,19 +89,22 @@ body {
   align-items: center;
   width: 80%;
 }
+
 .lang-1 ul li {
   list-style: none;
   padding-top: 0.3rem;
 }
+
 hr {
-  color: black;
+  color: rgb(141, 141, 141);
 }
 
 
 @keyframes tipsy {
-  0 {
+  0% {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
   }
+
   100% {
     transform: translateX(-50%) translateY(-50%) rotate(360deg);
   }
@@ -78,7 +125,7 @@ hr {
   transform: translateX(-50%) translateY(-50%); */
 }
 
-.title:before,
+/* .title:before,
 .title:after {
   content: '';
   padding: .9em .4em;
@@ -90,7 +137,7 @@ hr {
   border: 15px solid red;
   transform: translateX(-50%) translateY(-50%) rotate(0deg);
   animation: 10s infinite alternate ease-in-out tipsy;
-}
+} */
 
 .title:before {
   border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
@@ -100,4 +147,140 @@ hr {
 .title:after {
   border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
   box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+}
+
+
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.navbar {
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-item:last-child {
+  margin-top: auto;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.fa-primary {
+  color: #ff7eee;
+}
+.fa-secondary {
+  color: #df49a6;
+} */
+ .fa-primary,
+.fa-secondary {
+  transition: width 200ms ease;
+}
+
+/* .nav-item:hover {
+  background-color: #4e3b47;
+  transition: 200ms ease-in;
+  transform: translate(16rem, 0%); 
+} */
+
+.nav-link:hover {
+  color: #ff7eee;
+}
+
+.logo {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
+
+.logo svg {
+  transform: rotate(0deg);
+  transition: all 1s ease-out;
+}
+
+.logo:hover svg {
+  transform: rotate(-540deg);
+}
+
+@media only screen and (min-width: 600px) {
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar:hover {
+    width: 16rem;
+  }
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+
+  .nav-link {
+    height: 5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
 }
